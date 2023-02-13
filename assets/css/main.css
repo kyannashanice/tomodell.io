@@ -1035,12 +1035,12 @@ a:active {
 }
 
 .btn-outline-primary {
-    border: 2px solid #244093 !important;
+    border: 2px solid #151414 !important;
     color: #244093 !important;
 }
 
 .btn-outline-primary:hover {
-    background-color: #244093 !important;
+    background-color: #151414 !important;
     color: white !important;
 }
 
