@@ -1,0 +1,164 @@
+nav {
+    display: flex;                  /* establish flex container */
+    flex-direction: row;            /* default value; can be omitted */
+    flex-wrap: nowrap;              /* default value; can be omitted */
+    justify-content: space-between; /* switched from default (flex-start, see below) */
+    background-color: #244093;
+    margin: 0;
+    padding-left: 70px;
+    padding-right: 70px;
+    align-items: center;
+    height: 100px;
+}
+
+#navigation > div {
+    width: 100px;
+    height: 100px;
+    border: 2px dashed red;
+}
+
+.nav-center h3{
+    text-align: center;
+    justify-content: center;
+    color: #ffbd75;
+    font-size: 35px;
+    font-weight: 600;
+    cursor: default;
+}
+
+.nav-left a {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-right: 30px;
+    text-decoration: none;
+    color: #ffbd75;
+}
+
+.nav-right a {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    margin-left: 30px;
+    text-decoration: none;
+    color: #ffbd75;
+}
+
+body {
+    background-image: url(../images/Tomodell_albumcover_007.webp);
+    background-size: 120vw;
+}
+
+.center-splash {
+    background-color: rgb(230, 230, 230);
+    width: 80vw;
+    height: 60vh;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    max-width: 100%;
+    max-height: 100%;
+    overflow: auto;
+    border: 20px solid rgb(230, 230, 230);
+    z-index: 99;
+    overflow: hidden;
+}
+
+.left-splash {
+    float: left;
+    width: 50%;
+    overflow: hidden;
+    text-align: center;
+}
+
+.left-splash div {
+    margin-top: 17vh;
+}
+
+.left-splash-container h2 {
+    font-size: 50px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 1000;
+    line-height: 40px;
+    animation-name: fadein;
+    animation-duration: 2s;
+}
+
+.left-splash-container button {
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    background-color: rgb(230, 230, 230);
+    color: #244093;
+    border-color: #244093;
+    padding: 10px;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    animation-name: fadein;
+    animation-duration: 2s;
+}
+
+.right-splash {
+    width: 50%;
+    float: right;
+    background-image: url(../images/Tomodell_albumcover_007.webp);
+    background-size: 60vw;
+    margin-top: 5px;
+    position: relative;
+    padding-top: 575px;
+    overflow: hidden;
+}
+
+@media only screen and (max-width: 900px) {
+    .right-splash {
+        display: none!important;
+    }
+
+    .left-splash {
+        width: 100%;
+    }
+
+    nav {
+        padding: 10px;
+    }
+    
+    .left-splash div {
+        margin-top: 30px;
+    }
+
+    .right-splash {
+        background-size: 100vw;
+    }
+  }
+
+#counter {
+    color: #244093;
+    font-size: 30px;
+    overflow: hidden; /* Ensures the content is not revealed until the animation */
+  white-space: nowrap; /* Keeps the content on a single line */
+  margin: 0 auto; /* Gives that scrolling effect as the typing happens */
+  letter-spacing: .15em; /* Adjust as needed */
+  animation: 
+    typing 3.5s steps(40, end),
+    blink-caret .75s step-end infinite;
+}
+
+@keyframes fadein {
+    0%   {opacity: 0.2} 
+    100% {opacity: 1}
+}
+
+/* The typing effect */
+@keyframes typing {
+    from { width: 0 }
+    to { width: 100% }
+  }
+  
+  /* The typewriter cursor effect */
+  @keyframes blink-caret {
+    from, to { border-color: transparent }
+    50% { border-color: orange; }
+  }
