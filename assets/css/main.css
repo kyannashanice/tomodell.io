@@ -1046,4 +1046,6 @@ a:active {
 
 #splash-modal {
     overflow: hidden;
+    margin: 0 auto;
+    top: 25%;
 }
