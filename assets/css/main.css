@@ -1017,11 +1017,29 @@ a:active {
 
 .left-splash {
     text-align: center;
-    margin-top: 20%;
+    margin-top: 50%;
 }   
 
-.left-splash-container h2 {
+@media only screen and {max-width: 990px) {
+
+    .left-splash {
+        text-align: center;
+        margin-top: 15%;
+    }   
+}
+    
+
+
+.left-splash-container h1 {
     font-size: 50px;
+    font-weight: 600;
+    animation-name: fadein;
+    animation-duration: 2s;
+    font-family: 'moleregular';
+}
+
+.left-splash-container h2 {
+    font-size: 30px;
     font-weight: 600;
     animation-name: fadein;
     animation-duration: 2s;
@@ -1046,6 +1064,8 @@ a:active {
 
 #splash-modal {
     overflow: hidden;
-    margin: 0 auto;
-    top: 25%;
+}
+
+#splash-modal-header {
+    padding: 0.5rem 1rem;
 }

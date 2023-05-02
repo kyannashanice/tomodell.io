@@ -51,13 +51,13 @@ body {
 
 .center-splash {
     background-color: rgb(230, 230, 230);
-    width: 60vw;
-    height: 50vh;
+    width: 80vw;
+    height: 60vh;
     position: absolute;
-    left: 50%;
-    right: 50%;
-    top: 50%;
-    bottom: 50%;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
     margin: auto;
     max-width: 100%;
     max-height: 100%;
@@ -78,13 +78,20 @@ body {
     margin-top: 17vh;
 }
 
-.left-splash-container h2 {
+.left-splash-container h1 {
     font-size: 50px;
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 1000;
-    line-height: 40px;
+    font-weight: 600;
     animation-name: fadein;
     animation-duration: 2s;
+    font-family: 'moleregular';
+}
+
+.left-splash-container h2 {
+    font-size: 30px;
+    font-weight: 600;
+    animation-name: fadein;
+    animation-duration: 2s;
+    font-family: 'moleregular';
 }
 
 .left-splash-container button {
@@ -113,10 +120,6 @@ body {
 }
 
 @media only screen and (max-width: 900px) {
-    .center-splash{
-        width: 80%;
-    }
-
     .right-splash {
         display: none!important;
     }
