@@ -3,6 +3,7 @@ var $hamburger = $('.hamburger');
     $('nav').hide();
 $hamburger.on('click', function(e) {
     $hamburger.toggleClass('is-active');
+    $('header').toggleClass('is-active');
     $('nav').removeClass('hide');
     $('nav').slideToggle(150);
 });
@@ -10,6 +11,7 @@ $hamburger.on('click', function(e) {
 $(document).on('click', function(event) {
   if (!$(event.target).closest('.nav-menu').length) {
       $hamburger.removeClass('is-active');
+	  $('header').removeClass('is-active');
       $('nav').slideUp(150);
   }
 });
@@ -19,18 +21,46 @@ $(document).ready(function(){
     var scroll_pos = 0;
     var path = window.location.pathname;
     var page = path.split("/").pop();
-    if(page == "index.html") {
-        $(document).scroll(function() { 
-            scroll_pos = $(this).scrollTop();
-            if(scroll_pos > 630 && scroll_pos < 4800) {
-                $('#change a').css('color', '#244093');
-                $('#change').css('color', '#244093');
-            } else {
-                $('#change a').css('color', '#ffbd75');
-                $('#change').css('color', '#ffbd75');
-            }
-        });
-    }
+//    if(page == "index.html") {
+//        $(document).scroll(function() { 
+//            scroll_pos = $(this).scrollTop();
+//            if(scroll_pos > 630 && scroll_pos < 4800) {
+//                $('#change a').css('color', '#fff');
+//                $('#change').css('color', '#fff');
+//            } else {
+//                $('#change a').css('color', '#000');
+//                $('#change').css('color', '#000');
+//            }
+//        });
+//    }
+	
+function navColour() {
+	var pageScrollPosition = $(window).scrollTop();
+	$('.page-section').each(function(index, element) {
+		var thisBlock = $(this);
+		var thisTop = thisBlock.offset().top;
+		var thisHeight = thisBlock.outerHeight();
+		var thisBottom = thisTop + thisHeight;
+
+		if(pageScrollPosition >= thisTop && pageScrollPosition < thisBottom) {
+			if(thisBlock.hasClass('dark')) {
+				$('header').removeClass('light').addClass('dark');
+			} else if(thisBlock.hasClass('light')) {	
+				$('header').removeClass('dark').addClass('light');
+			} else {
+				$('header').removeClass('light').removeClass('dark');
+			}
+		}
+	});
+};
+navColour();
+$(window).scroll(function (event) {
+	navColour();
+});
+$(window).on('resize', function(){
+	navColour();	
+});	
+	
 });
 
 jQuery(document).ready(function($) {

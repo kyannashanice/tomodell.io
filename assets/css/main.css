@@ -55,6 +55,32 @@ h1, h2, h3, h4, h5,h6, p {
     font-size: 2.5rem;
 }
 
+.logo-wrapper {
+    position: relative;
+    margin-left: -5%;
+}
+
+.logo {
+    display: block;
+    width: 180px;
+}
+
+header.dark .logo {
+	opacity: 0;
+	visibility: hidden;
+}
+
+.logo.logo-light {
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+header.dark .logo.logo-light {
+	display: block !important;
+	opacity: 1;
+	visibility: visible;
+}
 
 #sub-heading {
     color:#244093;
@@ -88,7 +114,7 @@ h1, h2, h3, h4, h5,h6, p {
 }
 
 .menu a {
-    color:#ffbd75;
+    color:#000;
 }
 
 .menu a:link {
@@ -101,10 +127,36 @@ a:visited {
   
 a:hover {
     text-decoration: none !important;
+	color: #000;
+}
+
+.menu a:hover {
+	opacity: 0.5;
+	
 }
   
 a:active {
     text-decoration: underline;
+}
+
+.d-flex {
+    justify-content: space-between;
+}
+
+header.light, header.light a {
+    color: #000 !important;
+}
+
+header.light .hamburger-inner, header.light .hamburger-inner::before, header.light .hamburger-inner::after {
+    background-color: #000 !important;
+}
+
+header.dark, header.dark a {
+    color: #fff !important;
+}
+
+header.dark .hamburger-inner, header.dark .hamburger-inner::before, header.dark .hamburger-inner::after {
+    background-color: #fff !important;
 }
 
 @media only screen and (max-width : 996px) {
@@ -126,15 +178,16 @@ a:active {
     width: 100%;
     display: flex;
     flex-direction: row;
-    flex-wrap: wrap;
+/*    flex-wrap: wrap;*/
     justify-content: flex-start;
 }
   
-.social-nav .social-link-bar a{
-    color: #ffbd75;
-    font-size: 125%;
-    min-width: 40px;
+.social-nav .social-link-bar a {
+    color: #000;
+    font-size: 100%;
+    /* min-width: 30px; */
     padding-bottom: 0.5rem;
+    padding-right: 10px;
 }
 
 .tiktok-icon{
@@ -166,7 +219,7 @@ a:active {
   .social-nav .social-link-bar a{
     font-size: 150%;
     min-width: 42px;
-    color: #ffbd75;
+    color: #000;
     transition: all 0.4s ease-in-out;
   }
 }
@@ -191,11 +244,37 @@ a:active {
         width: 100vw;
         height: 3rem;
         padding: 0 1rem;
+		position: relative;
+		z-index: 2;
     }
+	
+	header.is-active .nav-menu, header.is-active .nav-list{
+		background: #000;
+		color: #fff !important;
+	}
+	
+	header.is-active .nav-list a{
+		color: #fff !important;
+	}
+	
+	header.is-active .hamburger-inner, header.is-active .hamburger-inner::before, header.is-active .hamburger-inner::after {
+		background: #fff !important;
+	}
+	
+	header.is-active .logo {
+		opacity: 0 !important;
+		visibility: hidden !important;
+	}
+	
+	header.is-active .logo.logo-light {
+		display: block !important;
+		opacity: 1 !important;
+		visibility: visible !important;
+	}
     
     #navbar .nav-title h3{
         margin: 0 auto;
-        color: #ffbd75;
+        color: #000;
     }
       
     .nav-menu {
@@ -206,11 +285,11 @@ a:active {
         width: 100vw;
         top: 0;
         left: 0;
-        background: #244093;
+/*        background: #244093;*/
     }
       
     .nav-list {
-        background: #244093;
+/*        background: #244093;*/
         position: relative;
         text-align: center;
         height: 100vh;
@@ -234,7 +313,7 @@ a:active {
     }
 
     .nav-links a {
-        color: #ffbd75;
+        color: #000;
     }
     
     .nav-links a:link {
@@ -255,7 +334,7 @@ a:active {
       
     .hamburger-float {
         position: absolute;
-        background-color: #ffbd75;
+        background-color: #000;
         top: 0;
         right: 0;
     }
@@ -263,6 +342,7 @@ a:active {
     .content {
         padding-top: 50px;
     }
+	
     
     /*!
        * Hamburgers
@@ -272,20 +352,23 @@ a:active {
        * @link https://github.com/jonsuh/hamburgers
     */
     .hamburger {
-        padding-top: 1rem;
-        padding-right: 3.75rem;
-        display: inline-block;
-        cursor: pointer;
-        transition-property: opacity, -webkit-filter;
-        transition-property: opacity, filter;
-        transition-property: opacity, filter, -webkit-filter;
-        transition-duration: 0.15s;
-        transition-timing-function: linear;
-        font: inherit;
-        background-color: transparent;
-        border: 0;
-        overflow: visible; 
-    }
+		padding-top: 1rem;
+		padding-right: 3.75rem;
+		display: inline-block;
+		cursor: pointer;
+		transition-property: opacity, -webkit-filter;
+		transition-property: opacity, filter;
+		transition-property: opacity, filter, -webkit-filter;
+		transition-duration: 0.15s;
+		transition-timing-function: linear;
+		font: inherit;
+		background-color: transparent;
+		border: 0;
+		overflow: visible;
+		z-index: 9;
+		width: initial !important;
+		padding-bottom: 15px;
+	}
     .hamburger:hover {
         opacity: 0.7; 
     }
@@ -297,6 +380,7 @@ a:active {
         display: inline-block;
         position: relative;
         float: right;
+		z-index: 99;
     }
       
     .hamburger-inner {
@@ -307,8 +391,8 @@ a:active {
     .hamburger-inner, .hamburger-inner::before, .hamburger-inner::after {
         width: 40px;
         height: 4px;
-        background-color: #ffbd75;
-        border-radius: 4px;
+        background-color: #000;
+/*        border-radius: 4px;*/
         position: absolute;
         transition-property: -webkit-transform;
         transition-property: transform;
@@ -370,8 +454,8 @@ a:active {
 }
 
 .seated-container {
-    width: 70% !important;
-    margin-left: 15% !important;
+	width: 60% !important;
+    margin-left: 20% !important;
     padding-top: 2.5rem;
     margin: 0 auto;
 }
@@ -478,8 +562,44 @@ a:active {
 
 .landing-wrapper {
     height: 105vh;
-    background-color:#244093;
+	background: url("../images/bf-bg.jpg") center center no-repeat #000;
+	-o-background-size: cover;
+	-ms-background-size: cover;
+	-moz-background-size: cover;
+	-webkit-background-size: cover;
+	background-size: cover;
 }
+
+#release-title {
+    display: block;
+    width: 250px;
+    top: 50%;
+    -o-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    -moz-transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    transform: translateY(-50%);
+    position: absolute;
+    right: 15%;
+}
+
+.latest-music-header .h3, .latest-video-header .h3 {
+    font-size: 2.5em;
+}
+
+@media only screen and (max-width: 996px) {
+	#release-title {
+		width: 120px;
+		top: 52%;
+		right: 5%;
+	}
+	
+	.logo {
+    width: 100px;
+}
+    
+}
+
 
 .landing {
     margin-top: -20px;
@@ -496,21 +616,21 @@ a:active {
 .latest-music-wrapper {
     padding-top: 10vh;
     height: 100vh;
-    background-color: #ffbd75;
+    background-color: #000;
 }
 
 .latest-music {
     max-width: 77vh !important;
     width: 42% !important;
     font-family: 'moleregular';
-    color:#244093;
+    color:#fff;
     white-space: nowrap;
     padding-bottom: 20px;
 }
 
 .latest-music a {
     text-decoration: none !important;
-    color: #244093 !important;
+    color: #fff !important;
 }
 
 /* Latest Music End */
@@ -520,7 +640,7 @@ a:active {
 .latest-video-wrapper {
     padding-top: 10vh;
     height: 100vh;
-    background-color: rgb(235, 217, 107);
+    background-color:#000;
 }
 
 .latest-video {
@@ -545,11 +665,11 @@ a:active {
   }
 
   .one {
-    color: #244093
+    color: #fff
   }
 
   .two {
-    color: #244093;
+    color: #fff;
   }
 
 .store-container {
@@ -799,14 +919,14 @@ a:active {
 #events .heading {
     margin: 0 auto;
     padding-top: 7rem;
-    width: 85%;
+    width: 60%;
 }
 
 #events .heading #heading1 { 
-    width: 81%;
+    width: 100%;
     margin: 0 auto;
     text-align: left;
-    color:#244093;
+    color:#000;
     font-size: 2.5rem;
 }
 
@@ -814,8 +934,12 @@ a:active {
     margin: 0 auto;
     padding-top: 0.65rem;
     text-align: left;
-    color:#244093;
+    color:#000;
     font-size: 2.5rem;
+}
+
+#events .seated-event-date-cell, #events .seated-event-link1 {
+    text-transform: initial !important;
 }
 
 
@@ -837,11 +961,11 @@ a:active {
     font-family: 'moleregular';
     font-weight: 200;
     font-size: 1.25rem;
-    color: #244093;
+    color: #000;
 }
 
 .seated-event-description-cells {
-    color:#244093;
+    color:#000;
     display: flex;
     width: 85% !important;
 }
@@ -893,7 +1017,7 @@ a:active {
 }
 .seated-event-link2{
     background-color: transparent !important;
-    color: #244093 !important;
+    color: #000 !important;
     border: none !important;
     font-size: 1.25rem !important;
     margin: 0 !important;
@@ -901,22 +1025,25 @@ a:active {
    
 .seated-event-link2:hover{
     background-color: transparent !important;
-    color: #ffbd75 !important;
+    color: #000 !important;
     border: none !important;
+	opacity: 0.5;
 }
    
 .seated-event-link1 {
     background-color: transparent !important;
-    color: #244093 !important;
+    color: #000 !important;
     border: none !important;
     font-size: 1.25rem !important;
     margin: 0 !important;
+	text-transform: initial !important;
 }
    
 .seated-event-link1:hover{
     background-color: transparent !important;
-    color: #ffbd75 !important;
+    color: #000 !important;
     border: none !important;
+	opacity: 0.5;
 }
 
 #events.landing {
@@ -932,11 +1059,12 @@ a:active {
   .seated-event-row {
       position: relative !important;
       height: 80px;
-      border-bottom: 1px solid rgb(214, 214, 214) !important;
+	  margin-bottom: 20px;
+/*      border-bottom: 1px solid rgb(214, 214, 214) !important;*/
   }
 
   .seated-event-description-cells {
-    color: #244093;
+    color: #000;
     display: flex;
     width: 85% !important;
     margin-top: -20px;
@@ -1003,11 +1131,11 @@ a:active {
 
 .myFont {
     font-family: 'moleregular';
-    color: #ffbd75;
+    color: #fff;
 }
 
 .store-wrapper {
-    background-color: #244093;
+    background-color: #000;
 }
 
 .right-splash {
@@ -1017,20 +1145,11 @@ a:active {
 
 .left-splash {
     text-align: center;
-    margin-top: 50%;
+    margin-top: 20%;
 }   
 
-
-.left-splash-container h1 {
-    font-size: 50px;
-    font-weight: 600;
-    animation-name: fadein;
-    animation-duration: 2s;
-    font-family: 'moleregular';
-}
-
 .left-splash-container h2 {
-    font-size: 30px;
+    font-size: 50px;
     font-weight: 600;
     animation-name: fadein;
     animation-duration: 2s;
@@ -1041,28 +1160,6 @@ a:active {
     margin-bottom: 20px;
     font-size: 20px;
     font-family: 'moleregular';
-}
-
-@media only screen and (max-width: 900px) {
-    .left-splash {
-        margin-top: 10%;
-    }   
-
-    .left-splash-container h1 {
-        font-size: 40px;
-        font-weight: 600;
-        animation-name: fadein;
-        animation-duration: 2s;
-        font-family: 'moleregular';
-    }
-    
-    .left-splash-container h2 {
-        font-size: 20px;
-        font-weight: 600;
-        animation-name: fadein;
-        animation-duration: 2s;
-        font-family: 'moleregular';
-    }
 }
 
 .btn-outline-primary {
@@ -1077,8 +1174,4 @@ a:active {
 
 #splash-modal {
     overflow: hidden;
-}
-
-#splash-modal-header {
-    padding: 0.5rem 1rem;
 }
