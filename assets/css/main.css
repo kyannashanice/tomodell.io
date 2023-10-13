@@ -23,9 +23,14 @@ Yellow       #ebd96b
 
 @font-face {
     font-family: 'moleregular';
-    src: url('../font/mole-regular.woff') format('woff'),
+    src: url('../fonts/mole-regular.woff') format('woff'),
          url('../fonts/mole-regular.woff2') format('woff2');
     font-style: normal;
+}
+
+.modal-header {
+    padding-bottom: 0 !important;
+    border-bottom: 0 !important;
 }
 
 html, body{
@@ -562,7 +567,7 @@ header.dark .hamburger-inner, header.dark .hamburger-inner::before, header.dark 
 
 .landing-wrapper {
     height: 105vh;
-	background: url("../images/bf-bg.jpg") center center no-repeat #000;
+	background: url("../images/header-bg.jpg") center center no-repeat #000;
 	-o-background-size: cover;
 	-ms-background-size: cover;
 	-moz-background-size: cover;
@@ -572,15 +577,15 @@ header.dark .hamburger-inner, header.dark .hamburger-inner::before, header.dark 
 
 #release-title {
     display: block;
-    width: 250px;
+    width: 200px;
     top: 50%;
     -o-transform: translateY(-50%);
     -ms-transform: translateY(-50%);
     -moz-transform: translateY(-50%);
     -webkit-transform: translateY(-50%);
-    transform: translateY(-50%);
+    transform: translateY(-100%);
     position: absolute;
-    right: 15%;
+    right: 10%;
 }
 
 .latest-music-header .h3, .latest-video-header .h3 {
@@ -588,11 +593,12 @@ header.dark .hamburger-inner, header.dark .hamburger-inner::before, header.dark 
 }
 
 @media only screen and (max-width: 996px) {
-	#release-title {
-		width: 120px;
-		top: 52%;
-		right: 5%;
-	}
+#release-title {
+    width: 120px;
+    top: 54%;
+    right: initial;
+    left: 25px;
+}
 	
 	.logo {
     width: 100px;
