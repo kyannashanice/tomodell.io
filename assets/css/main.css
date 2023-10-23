@@ -28,10 +28,6 @@ Yellow       #ebd96b
     font-style: normal;
 }
 
-.modal-header {
-    padding-bottom: 0 !important;
-    border-bottom: 0 !important;
-}
 
 html, body{
     padding: 0;
@@ -1149,13 +1145,22 @@ header.dark .hamburger-inner, header.dark .hamburger-inner::before, header.dark 
     object-fit: cover;
 }
 
+.right-splash {
+	width: auto;
+    max-width: 100%;
+    object-fit: cover;
+    max-height: 75vh;
+    max-height: 75dvh;
+}
+
 .left-splash {
     text-align: center;
-    margin-top: 20%;
+	padding: 20px 0;
+/*    margin-top: 20%;*/
 }   
 
 .left-splash-container h2 {
-    font-size: 50px;
+	font-size: 50px;
     font-weight: 600;
     animation-name: fadein;
     animation-duration: 2s;
@@ -1163,7 +1168,7 @@ header.dark .hamburger-inner, header.dark .hamburger-inner::before, header.dark 
 }
 
 .left-splash-container a {
-    margin-bottom: 20px;
+    margin: 10px auto 0;
     font-size: 20px;
     font-family: 'moleregular';
 }
@@ -1180,4 +1185,34 @@ header.dark .hamburger-inner, header.dark .hamburger-inner::before, header.dark 
 
 #splash-modal {
     overflow: hidden;
+}
+
+
+.modal-header {
+    padding-bottom: 0 !important;
+    border-bottom: 0 !important;
+}
+
+@media only screen and (max-width : 996px) {
+.modal h2 {
+    font-size: 2.5em;
+}
+
+.modal h3 {
+    font-size: 1.25em !important;
+}
+	
+.right-splash {
+    max-height: 45vh;
+    max-height: 45dvh;
+}
+}
+
+
+@media only screen and (min-width : 996px) {
+.col-sm {
+    display: flex;
+    align-items: center;
+    align-content: center;
+}
 }
